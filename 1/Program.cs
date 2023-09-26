@@ -6,14 +6,15 @@ internal class Program
 {
     private static readonly Option[] Options =
     {
-        new("Hello", _1.Hello)
+        new("Hello", _1.Hello),
+        new("Multiplication Table", _2.MultiplicationTable)
     };
 
     public static void Main(string[] args)
     {
         while (true)
         {
-            Console.WriteLine("\n\n--------------------\n\n");
+            Console.WriteLine("\n--------------------\n");
 
             for (var i = 0; i < Options.Length; i++)
                 Console.WriteLine($"{i + 1:00})\t{Options[i].Name}");
@@ -50,8 +51,17 @@ internal class Program
 
             if (choice == 99) break;
 
-            Console.WriteLine("\n\n");
-            Options[(int)(choice - 1)].function(args);
+            Console.WriteLine("\n");
+            try
+            {
+                Options[(int)(choice - 1)].function(args);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n####################\n");
+                Console.WriteLine("Error: " + e.Message);
+                Console.WriteLine("\n####################\n");
+            }
         }
     }
 }
