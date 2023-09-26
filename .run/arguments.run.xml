@@ -1,7 +1,7 @@
 ﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="1" type="DotNetProject" factoryName=".NET Project" folderName="1">
+  <configuration default="false" name="arguments" type="DotNetProject" factoryName=".NET Project" folderName="1">
     <option name="EXE_PATH" value="$PROJECT_DIR$/1/bin/Debug/_1.exe" />
-    <option name="PROGRAM_PARAMETERS" value="" />
+    <option name="PROGRAM_PARAMETERS" value="World" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1/bin/Debug" />
     <option name="PASS_PARENT_ENVS" value="1" />
     <option name="USE_EXTERNAL_CONSOLE" value="0" />
