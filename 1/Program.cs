@@ -7,7 +7,8 @@ internal class Program
     private static readonly Option[] Options =
     {
         new("Hello", _1.Hello),
-        new("Multiplication Table", _2.MultiplicationTable)
+        new("Multiplication Table", _2.MultiplicationTable),
+        new("Calculations", _3.Calculations),
     };
 
     public static void Main(string[] args)
@@ -16,7 +17,7 @@ internal class Program
         {
             Console.WriteLine("\n--------------------\n");
 
-            for (var i = 0; i < Options.Length; i++)
+            for (int i = 0; i < Options.Length; i++)
                 Console.WriteLine($"{i + 1:00})\t{Options[i].Name}");
 
             Console.WriteLine($"{99})\tEXIT");
@@ -54,7 +55,7 @@ internal class Program
             Console.WriteLine("\n");
             try
             {
-                Options[(int)(choice - 1)].function(args);
+                Options[(int)(choice - 1)].Function(args);
             }
             catch (Exception e)
             {
@@ -68,12 +69,12 @@ internal class Program
 
 internal class Option
 {
-    public readonly Action<string[]> function;
+    public readonly Action<string[]> Function;
     public readonly string Name;
 
     public Option(string name, Action<string[]> function)
     {
         Name = name;
-        this.function = function;
+        Function = function;
     }
 }
