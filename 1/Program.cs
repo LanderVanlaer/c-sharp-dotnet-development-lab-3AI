@@ -9,6 +9,7 @@ internal class Program
         new("Hello", _1.Hello),
         new("Multiplication Table", _2.MultiplicationTable),
         new("Calculations", _3.Calculations),
+        new("Longest Word", _4.LongestWord),
     };
 
     public static void Main(string[] args)
