@@ -10,6 +10,7 @@ internal class Program
         new("Multiplication Table", _2.MultiplicationTable),
         new("Calculations", _3.Calculations),
         new("Longest Word", _4.LongestWord),
+        new("Length Of A String", _5.LengthOfAString),
     };
 
     public static void Main(string[] args)
