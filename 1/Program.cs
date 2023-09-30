@@ -11,6 +11,7 @@ internal class Program
         new("Calculations", _3.Calculations),
         new("Longest Word", _4.LongestWord),
         new("Length Of A String", _5.LengthOfAString),
+        new("Print Numbers", _6.PrintNumbers),
     };
 
     public static void Main(string[] args)
