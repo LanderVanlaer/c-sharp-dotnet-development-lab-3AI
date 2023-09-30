@@ -12,6 +12,7 @@ internal class Program
         new("Longest Word", _4.LongestWord),
         new("Length Of A String", _5.LengthOfAString),
         new("Print Numbers", _6.PrintNumbers),
+        new("Is Prime?", _7.PrimeRecursive),
     };
 
     public static void Main(string[] args)
