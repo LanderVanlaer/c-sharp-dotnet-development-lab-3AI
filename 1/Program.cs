@@ -13,6 +13,7 @@ internal class Program
         new("Length Of A String", _5.LengthOfAString),
         new("Print Numbers", _6.PrintNumbers),
         new("Is Prime?", _7.PrimeRecursive),
+        new("Get Area", _8.GetArea),
     };
 
     public static void Main(string[] args)
