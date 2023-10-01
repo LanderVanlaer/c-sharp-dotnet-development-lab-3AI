@@ -14,6 +14,7 @@ internal class Program
         new("Print Numbers", _6.PrintNumbers),
         new("Is Prime?", _7.PrimeRecursive),
         new("Get Area", _8.GetArea),
+        new("FizzBuzz", _9.FizzBuzz),
     };
 
     public static void Main(string[] args)
