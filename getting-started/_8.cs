@@ -8,7 +8,7 @@ public class _8
      * Write a class that holds 2 coordinates (x,y) which represents a rectangle. Write a method that
      * calculates the circumference and the area of the rectangle. X1 cannot be the same as X2, and Y1
      * cannot be the same as Y2.
-     *
+     * 
      * Write a class that holds the center coordinate (x,y) and the radius of a circle with a method
      * that calculates the area of the circle. Use a field to store pi. The calculated area has to be
      * stored in a private field. Outside the class, you can only read the value of the area using the
@@ -46,8 +46,8 @@ public class _8
     private class Circle
     {
         private const double Pi = Math.PI;
-        private int _radius;
         private double _area;
+        private int _radius;
         public Coordinate Center;
 
         public Circle(Coordinate center, int radius)

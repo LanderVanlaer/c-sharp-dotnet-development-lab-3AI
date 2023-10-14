@@ -19,10 +19,8 @@ public class _4
         string longestWord = words[0];
 
         foreach (string word in words)
-        {
             if (longestWord.Length < word.Length)
                 longestWord = word;
-        }
 
         Console.WriteLine($"The Longest Word is: {longestWord}");
     }
