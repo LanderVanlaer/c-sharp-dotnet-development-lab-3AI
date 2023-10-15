@@ -1,15 +1,18 @@
 ﻿using System.Collections.Immutable;
 using Backend.customers;
+using Backend.Transactions;
 using Backend.Utils;
 
 namespace Backend.accounts;
 
-public abstract class Account : Base
+public abstract class Account : Base, ITransactionable, IComparable
 {
     // ReSharper disable once MemberCanBePrivate.Global
     public const int NumberLength = 10;
     private readonly HashSet<Customer> _accessList = new();
     private readonly string _number;
+
+    private readonly List<Transaction> _transactions = new();
 
     protected Account()
     {
@@ -63,6 +66,31 @@ public abstract class Account : Base
         }
     }
 
+    public string Identification => Number;
+
+    public ImmutableList<Transaction> Transactions => _transactions.ToImmutableList();
+
+    public bool CanTransact(decimal amount)
+    {
+        return amount < Balance;
+    }
+
+    /// <seealso cref="_transactions" />
+    /// <exception cref="ArgumentException">If the transaction is not From or To the Account</exception>
+    public void AddTransaction(Transaction transaction)
+    {
+        if (transaction.From == this)
+            Balance -= transaction.Amount;
+        else if (transaction.To == this)
+            Balance += transaction.Amount;
+        else
+            throw new ArgumentException(
+                $"Can only add a transaction that is {nameof(Transaction.From)} or {nameof(Transaction.To)} this {nameof(Account)}",
+                nameof(transaction));
+
+        _transactions.Add(transaction);
+    }
+
     /// <seealso cref="NumberLength" />
     protected static string GenerateAccountNumber()
     {
@@ -98,5 +126,13 @@ public abstract class Account : Base
     {
         if (!_accessList.Remove(c))
             throw new ArgumentException($"The given {nameof(Customer)} is not connected to this {nameof(Account)}");
+    }
+
+    public int CompareTo(object? obj)
+    {
+        if (obj is not Account account)
+            throw new ArgumentException("Obj has to be of type " + nameof(Account), nameof(obj));
+
+        return String.Compare(Number, account.Number, StringComparison.Ordinal);
     }
 }

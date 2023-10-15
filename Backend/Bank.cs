@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 using Backend.accounts;
 using Backend.customers;
+using Backend.Transactions;
 using Backend.Utils;
 
 namespace Backend;
@@ -14,6 +15,11 @@ public class Bank : Base
     {
         Accounts = new AccountsHandler(this);
         Customers = new CustomersHandler(this);
+    }
+
+    public static Transaction Transact(ITransactionable from, ITransactionable to, decimal amount)
+    {
+        return new Transaction(from, to, amount);
     }
 
     public readonly struct CustomersHandler : IHandler<Customer, int>
@@ -73,9 +79,9 @@ public class Bank : Base
             return customer;
         }
 
-        public Customer Create(string name, string contactPhoneNumber, DateTime birthDay)
+        public Customer Create(string name, string contactPhoneNumber, DateTime birthDay, Gender gender)
         {
-            Customer customer = new(name, contactPhoneNumber, birthDay);
+            Customer customer = new(name, contactPhoneNumber, birthDay, gender);
             _customers.Add(customer);
             return customer;
         }
@@ -92,6 +98,12 @@ public class Bank : Base
         }
 
         public ImmutableHashSet<Account> All => _accounts.ToImmutableHashSet();
+
+        /// <summary>
+        ///  https://stackoverflow.com/a/44660496/13165967
+        /// </summary>
+        public ImmutableHashSet<CurrentAccount> AllCurrentAccounts => _accounts.Where(acc => acc is CurrentAccount)
+            .Cast<CurrentAccount>().ToImmutableHashSet();
 
         /// <param name="accountNumber">
         ///     <see cref="Account.Number">Account.Number</see>
