@@ -1,0 +1,41 @@
+﻿<Window x:Class="users_list.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:usersList="clr-namespace:users_list"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="1 4">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">First Name</Label>
+            <TextBox x:Name="FirstName" Grid.Row="0" Grid.Column="1" />
+            <Label Grid.Row="1" Grid.Column="0">Last Name</Label>
+            <TextBox x:Name="LastName" Grid.Row="1" Grid.Column="1" />
+        </Grid>
+        <StackPanel Orientation="Horizontal" Margin="4">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,0,3,0" />
+                    <Setter Property="Padding" Value="3 1" />
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="AddUserButton">Add Person To List</Button>
+            <Button x:Name="DeleteUserButton">Delete Selected Person From List</Button>
+            <Button x:Name="SortListByFirstNameButton">Sort List By FirstName</Button>
+            <Button x:Name="SortListByLastNameButton">Sort List By LastName</Button>
+            <Button x:Name="UploadListButton">UploadList</Button>
+            <Button x:Name="CountToMaxIntButton">Count To MaxInt</Button>
+        </StackPanel>
+        <ListView x:Name="UsersListView" ItemsSource="{Binding Users}"
+                  d:DataContext="{d:DesignInstance d:Type=usersList:MainWindow}" />
+    </StackPanel>
+</Window>

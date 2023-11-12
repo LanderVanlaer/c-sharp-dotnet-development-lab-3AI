@@ -41,7 +41,7 @@ namespace events_online_attendance
 {
     internal class Program
     {
-        private readonly List<User?> _users = new()
+        private readonly List<User> _users = new()
         {
             new User("John"),
             new User("Jane"),
