@@ -1,4 +1,4 @@
-﻿<component name="ProjectRunConfigurationManager">
+<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="c-sharp-dotnet-development-lab-3AI" type="DotNetProject" factoryName=".NET Project">
     <option name="EXE_PATH" value="$PROJECT_DIR$/c-sharp-dotnet-development-lab-3AI/bin/Debug/c_sharp_dotnet_development_lab_3AI.exe" />
     <option name="PROGRAM_PARAMETERS" value="" />
@@ -12,7 +12,7 @@
     <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
     <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
     <option name="PROJECT_KIND" value="Console" />
-    <option name="PROJECT_TFM" value=".NETFramework,Version=v4.0" />
+    <option name="PROJECT_TFM" value=".NETFramework,Version=v4.8.1" />
     <method v="2">
       <option name="Build" />
     </method>
